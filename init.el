@@ -2,7 +2,7 @@
 
 ;;; Commentary:
 ;;; Author: Jon Simington
-;;; Last revised: Time-stamp: <2016-06-21 17:08:34 (JOSIMINGTON)>
+;;; Last revised: Time-stamp: <2016-06-22 12:02:14 (JOSIMINGTON)>
 
 
 ;;; Code:
@@ -244,5 +244,5 @@ This functions should be added to the hooks of major modes for programming."
 (require 'flycheck-pyflakes)
 (add-hook 'python-mode-hook 'flycheck-mode)
 
-(provide '.emacs)
-;;; .emacs ends here
+(provide 'init.el)
+;;; init.el ends here
