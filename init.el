@@ -2,7 +2,7 @@
 
 ;;; Commentary:
 ;;; Author: Jon Simington
-;;; Last revised: Time-stamp: <2016-06-22 12:02:14 (JOSIMINGTON)>
+;;; Last revised: Time-stamp: <2016-06-22 15:58:26 (JOSIMINGTON)>
 
 
 ;;; Code:
@@ -19,7 +19,6 @@
 ;; Default find file path
 (setq default-directory "C:\\Users\\josimington\\")
 
-(add-to-list 'load-path "~/")
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
 (require 'elisp-format)
@@ -243,6 +242,12 @@ This functions should be added to the hooks of major modes for programming."
 
 (require 'flycheck-pyflakes)
 (add-hook 'python-mode-hook 'flycheck-mode)
+
+(setq flycheck-highlighting-mode 'lines)
+(set-face-background 'flycheck-error "#f18c96")
+(set-face-foreground 'flycheck-error "black")
+(set-face-background 'flycheck-warning "#f8f893")
+(set-face-foreground 'flycheck-warning "black")
 
 (provide 'init.el)
 ;;; init.el ends here
