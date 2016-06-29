@@ -2,7 +2,7 @@
 
 ;;; Commentary:
 ;;; Author: Jon Simington
-;;; Last revised: Time-stamp: <2016-06-22 15:58:26 (JOSIMINGTON)>
+;;; Last revised: Time-stamp: <2016-06-29 16:46:08 (JOSIMINGTON)>
 
 
 ;;; Code:
@@ -248,6 +248,20 @@ This functions should be added to the hooks of major modes for programming."
 (set-face-foreground 'flycheck-error "black")
 (set-face-background 'flycheck-warning "#f8f893")
 (set-face-foreground 'flycheck-warning "black")
+
+;; colors in eshell
+(add-hook
+ 'eshell-mode-hook
+ (lambda ()
+   (setenv "TERM" "emacs") ; enable colors
+   ))
+
+;; handy window resize keybinds
+(global-set-key (kbd "<C-up>") 'shrink-window)
+(global-set-key (kbd "<C-down>") 'enlarge-window)
+(global-set-key (kbd "<C-right>") 'shrink-window-horizontally)
+(global-set-key (kbd "<C-left>") 'enlarge-window-horizontally)
+
 
 (provide 'init.el)
 ;;; init.el ends here
