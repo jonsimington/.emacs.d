@@ -2,7 +2,7 @@
 
 ;;; Commentary:
 ;;; Author: Jon Simington
-;;; Last revised: Time-stamp: <2016-06-29 16:46:08 (JOSIMINGTON)>
+;;; Last revised: Time-stamp: <2016-07-06 11:41:25 (JOSIMINGTON)>
 
 
 ;;; Code:
@@ -10,7 +10,7 @@
 ;;; Time stamp file on-save
 (defvar time-stamp-active t)
 (defvar time-stamp-line-limit 10)  ; only check first 10 buffer lines for Time-stamp:
-(defvar time-stamp-format "%04y-%02m-%02d %02H:%02M:%02S (%u)")
+(setq time-stamp-pattern "@file '%f' last edited by %u on %h at %Y-%:m-%:d %02H:%02M:%02S@")
 (add-hook 'before-save-hook 'time-stamp)
 
 ;; Hide welcome screen
@@ -77,7 +77,8 @@
 ;; Python Flymake
 (add-hook 'python-mode-hook 'flycheck-mode)
 (add-hook 'python-mode-hook 'flyspell-prog-mode)
-
+(add-hook 'javascript-mode-hook 'flycheck-mode)
+(add-hook 'javascript-mode-hook 'flyspell-prog-mode)
 ;; Go fmt hook
 (add-hook 'before-save-hook 'gofmt-before-save)
 
@@ -243,6 +244,8 @@ This functions should be added to the hooks of major modes for programming."
 (require 'flycheck-pyflakes)
 (add-hook 'python-mode-hook 'flycheck-mode)
 
+
+
 (setq flycheck-highlighting-mode 'lines)
 (set-face-background 'flycheck-error "#f18c96")
 (set-face-foreground 'flycheck-error "black")
@@ -261,6 +264,30 @@ This functions should be added to the hooks of major modes for programming."
 (global-set-key (kbd "<C-down>") 'enlarge-window)
 (global-set-key (kbd "<C-right>") 'shrink-window-horizontally)
 (global-set-key (kbd "<C-left>") 'enlarge-window-horizontally)
+
+;; auto insert lisp header when creating a new file
+(load-file "~/.emacs.d/lisp/header2.el")
+(require 'header2)
+(add-hook 'prog-mode-hook 'auto-make-header)
+
+
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+
+(setq web-mode-engines-alist
+      '((""    . "\\.phtml\\'")
+        ("blade"  . "\\.blade\\."))
+)
+
+
+(setq web-mode-enable-current-element-highlight t)
 
 
 (provide 'init.el)
