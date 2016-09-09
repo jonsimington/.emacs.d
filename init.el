@@ -113,6 +113,7 @@
 
 ;; Show line numbers on left of window
 (global-linum-mode t)
+(setq linum-format "%d ")
 
 ;; Highlight current line
 (global-hl-line-mode 1)
