@@ -2,12 +2,19 @@
 
 ;;; Commentary:
 ;;; Author: Jon Simington
-;;; Last revised: Time-stamp: <2016-07-06 11:41:25 (JOSIMINGTON)>
+;;; Last revised: Time-stamp: <2017-05-12 23:52:54 (Jon)>
 
 
 ;;; Code:
 
 ;;; Time stamp file on-save
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
 (defvar time-stamp-active t)
 (defvar time-stamp-line-limit 10)  ; only check first 10 buffer lines for Time-stamp:
 (setq time-stamp-pattern "@file '%f' last edited by %u on %h at %Y-%:m-%:d %02H:%02M:%02S@")
@@ -17,7 +24,7 @@
 (setq inhibit-startup-message t)
 
 ;; Default find file path
-(setq default-directory "C:\\Users\\josimington\\")
+(setq default-directory "C:\\Users\\Jon\\")
 
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
@@ -55,8 +62,10 @@
  '(package-archives
    (quote
     (("gnu" . "http://elpa.gnu.org/packages/")
-     ("melpa" . "http://melpa.org/packages/")
-     )))
+     ("melpa" . "http://melpa.org/packages/"))))
+ '(package-selected-packages
+   (quote
+    (emojify web-mode zenburn-theme yaml-mode web-beautify smex scss-mode sass-mode rust-mode multi-web-mode markdown-mode less-css-mode julia-mode jade-mode haskell-mode go-mode gitignore-mode flymake-coffee flycheck-pyflakes elm-mode elixir-mode company coffee-mode auctex)))
  '(require-final-newline t)
  '(scss-compile-at-save nil))
 (custom-set-faces
@@ -290,6 +299,33 @@ This functions should be added to the hooks of major modes for programming."
 
 (setq web-mode-enable-current-element-highlight t)
 
+;; Aspell for windows
+(setq ispell-program-name "C:\\Users\\Jon\\.emacs.d\\Aspell\\bin\\aspell")
+
+;; MELPA
+(require 'package) ;; You might already have this line
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/"))
+(when (< emacs-major-version 24)
+  ;; For important compatibility libraries like cl-lib
+  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+(package-initialize) ;; You might already have this line
+
+(add-to-list 'package-archives
+             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+
+;; Emojify
+(add-hook 'after-init-hook #'global-emojify-mode)
+
+(setq utf-translate-cjk-mode nil) ; disable CJK coding/encoding (Chinese/Japanese/Korean characters)
+  (set-language-environment 'utf-8)
+  (set-keyboard-coding-system 'utf-8-mac) ; For old Carbon emacs on OS X only
+  (setq locale-coding-system 'utf-8)
+  (set-default-coding-systems 'utf-8)
+  (set-terminal-coding-system 'utf-8)
+  (unless (eq system-type 'windows-nt)
+   (set-selection-coding-system 'utf-8))
+  (prefer-coding-system 'utf-8)
 
 (provide 'init.el)
 ;;; init.el ends here
