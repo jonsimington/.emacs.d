@@ -24,7 +24,7 @@
 (setq inhibit-startup-message t)
 
 ;; Default find file path
-(setq default-directory "C:\\Users\\Jon\\")
+(setq default-directory "/home/jon/")
 
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
@@ -313,19 +313,6 @@ This functions should be added to the hooks of major modes for programming."
 
 (add-to-list 'package-archives
              '("melpa-stable" . "http://stable.melpa.org/packages/") t)
-
-;; Emojify
-(add-hook 'after-init-hook #'global-emojify-mode)
-
-(setq utf-translate-cjk-mode nil) ; disable CJK coding/encoding (Chinese/Japanese/Korean characters)
-  (set-language-environment 'utf-8)
-  (set-keyboard-coding-system 'utf-8-mac) ; For old Carbon emacs on OS X only
-  (setq locale-coding-system 'utf-8)
-  (set-default-coding-systems 'utf-8)
-  (set-terminal-coding-system 'utf-8)
-  (unless (eq system-type 'windows-nt)
-   (set-selection-coding-system 'utf-8))
-  (prefer-coding-system 'utf-8)
 
 (provide 'init.el)
 ;;; init.el ends here

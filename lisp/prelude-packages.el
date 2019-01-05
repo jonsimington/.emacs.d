@@ -7,7 +7,7 @@
   '(auctex coffee-mode elixir-mode elm-mode flymake-coffee gitignore-mode
            go-mode haskell-mode julia-mode less-css-mode markdown-mode rust-mode
            sass-mode scss-mode yaml-mode zenburn-theme smex multi-web-mode web-mode
-           web-beautify flycheck flycheck-pyflakes)
+           web-beautify flycheck flycheck-pyflakes emojify company nginx-mode)
   "A list of packages to ensure are installed at launch.")
 
 (defun prelude-packages-installed-p ()
