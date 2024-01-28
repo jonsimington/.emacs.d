@@ -1,10 +1,9 @@
 ;; From http://batsov.com/articles/2012/02/19/package-management-in-emacs-the-good-the-bad-and-the-ugly/
 
 (require 'package)
-(package-initialize)
 
 (defvar prelude-packages
-  '(auctex coffee-mode elixir-mode elm-mode flymake-coffee gitignore-mode
+  '(auctex coffee-mode elixir-mode elm-mode flymake-coffee
            go-mode haskell-mode julia-mode less-css-mode markdown-mode rust-mode
            sass-mode scss-mode yaml-mode zenburn-theme smex multi-web-mode web-mode
            web-beautify flycheck flycheck-pyflakes emojify company nginx-mode)

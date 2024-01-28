@@ -13,7 +13,6 @@
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
-(package-initialize)
 
 (defvar time-stamp-active t)
 (defvar time-stamp-line-limit 10)  ; only check first 10 buffer lines for Time-stamp:
@@ -37,21 +36,19 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(TeX-PDF-mode t)
- '(TeX-view-program-list (quote (("Default Viewer" "open %o"))))
+ '(TeX-view-program-list '(("Default Viewer" "open %o")))
  '(TeX-view-program-selection
-   (quote
-    (((output-dvi style-pstricks)
+   '(((output-dvi style-pstricks)
       "dvips and gv")
      (output-dvi "xdvi")
      (output-pdf "Default Viewer")
-     (output-html "xdg-open"))))
+     (output-html "xdg-open")))
  '(c-basic-offset 2)
  '(c-default-style
-   (quote
-    ((c++-mode . "linux")
+   '((c++-mode . "linux")
      (java-mode . "java")
      (awk-mode . "awk")
-     (other . "gnu"))))
+     (other . "gnu")))
  '(coffee-tab-width 4)
  '(column-number-mode t)
  '(elisp-format-column 80)
@@ -60,12 +57,10 @@
  '(js-indent-level 4)
  '(org-agenda-files (directory-files "~/code/todo" t "\\.org" nil))
  '(package-archives
-   (quote
-    (("gnu" . "http://elpa.gnu.org/packages/")
-     ("melpa" . "http://melpa.org/packages/"))))
+   '(("gnu" . "http://elpa.gnu.org/packages/")
+     ("melpa" . "http://melpa.org/packages/")))
  '(package-selected-packages
-   (quote
-    (emojify web-mode zenburn-theme yaml-mode web-beautify smex scss-mode sass-mode rust-mode multi-web-mode markdown-mode less-css-mode julia-mode jade-mode haskell-mode go-mode gitignore-mode flymake-coffee flycheck-pyflakes elm-mode elixir-mode company coffee-mode auctex)))
+   '(emojify web-mode zenburn-theme yaml-mode web-beautify smex scss-mode sass-mode rust-mode multi-web-mode markdown-mode less-css-mode julia-mode jade-mode haskell-mode go-mode gitignore-mode flymake-coffee flycheck-pyflakes elm-mode elixir-mode company coffee-mode auctex))
  '(require-final-newline t)
  '(scss-compile-at-save nil))
 (custom-set-faces
